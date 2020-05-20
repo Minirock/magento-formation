@@ -1,0 +1,20 @@
+<?php
+
+/** @var $block \Correction\TP6\Block\Customer */
+$addresses = $block->getAddresses();
+
+?>
+<div class="customer-addresses">
+<h2><?= __('Addresses')?></h2>
+    <ul>
+        <?php foreach ($addresses as $address): ?>
+            <?php /* @var $address \Magento\Customer\Model\Address */ ?>
+            <li><?= implode('<br />', [
+                    $address->getStreetFull(),
+                    $address->getCity(),
+                    $address->getPostcode(),
+                    $address->getCountryModel()->getName()
+                ]) ?></li>
+        <?php endforeach;  ?>
+    </ul>
+</div>

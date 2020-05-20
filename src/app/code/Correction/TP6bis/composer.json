@@ -1,0 +1,24 @@
+{
+    "name": "correction/module-tp6-bis",
+    "description": "N/A",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "correction/module-tp6": "1.0.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Correction\\TP6bis\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

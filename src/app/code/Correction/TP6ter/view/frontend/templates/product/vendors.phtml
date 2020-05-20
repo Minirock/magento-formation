@@ -1,0 +1,12 @@
+<?php
+
+/** @var $block \Correction\TP6ter\Block\Product\Vendors */
+?>
+<div class="vendors">
+    <h2><?=__('Vendors') ?></h2>
+    <ul>
+    <?php foreach($block->getVendors() as $vendor): ?>
+        <li><?= __('#%1: %2', $vendor->getId(), $vendor->getData('name'));  ?></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

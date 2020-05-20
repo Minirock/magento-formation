@@ -1,0 +1,25 @@
+{
+    "name": "correction/module-tp7",
+    "description": "N/A",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "correction/module-tp6": "1.0.0",
+        "magento/module-customer": "*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Correction\\TP7\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

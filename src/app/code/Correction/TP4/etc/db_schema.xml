@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="correction_tp4_series" engine="innodb" comment="TP4 Series">
+        <column xsi:type="int" name="series_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Series ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Series Name"/>
+        <column xsi:type="varchar" name="color" nullable="false" length="32" comment="Series Color"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="series_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNIQUE">
+            <column name="name" />
+        </constraint>
+    </table>
+    <table name="correction_tp4_vendor" engine="innodb" comment="TP4 Vendors">
+        <column xsi:type="int" name="vendor_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Vendor ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Vendor Name"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="vendor_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNIQUE">
+            <column name="name" />
+        </constraint>
+    </table>
+    <table name="correction_tp4_catalog_product_vendor" engine="innodb" comment="TP4 Product/Vendor Associations">
+        <column xsi:type="int" name="vendor_id" padding="10" unsigned="true" nullable="false" comment="Vendor ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product ID"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="vendor_id"/>
+            <column name="product_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="VENDOR_ID_REFERENCE"
+                    column="vendor_id" referenceTable="correction_tp4_vendor"
+                    referenceColumn="vendor_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="PRODUCT_ID_REFERENCE"
+                    column="product_id" referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

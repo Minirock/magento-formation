@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="3columns" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <head>
+        <title>Correction TP6</title>
+    </head>
+    <body>
+        <attribute name="class" value="correctiontp6"/>
+
+        <referenceContainer name="sidebar.main">
+            <block name="customer_addresses"
+                   template="Correction_TP6::customer/addresses.phtml"
+                   class="Correction\TP6\Block\Customer" cacheable="false" />
+        </referenceContainer>
+
+        <referenceContainer name="main">
+            <block name="customer_info"
+                   template="Correction_TP6::customer/info.phtml"
+                   class="Correction\TP6\Block\Customer" cacheable="false" />
+        </referenceContainer>
+
+        <referenceContainer name="sidebar.additional">
+            <block name="text_1" class="Magento\Framework\View\Element\Text">
+                <action method="setText">
+                    <argument name="text" xsi:type="string">My first text!</argument>
+                </action>
+            </block>
+            <block name="now" class="Correction\TP6\Block\Now" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>
